@@ -1,1 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Machine Learning Is Transforming Early Detection of Diabetic Retinopathy</title>
+  <!-- Basic layout & formatting -->
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #222;
+    }
 
+    header {
+      background: #253746;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    nav {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 10px;
+      height: fit-content;
+    }
+
+    nav h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 5px 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1b5da3;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #253746;
+    }
+
+    h3 {
+      color: #34495e;
+    }
+
+    .meta-box {
+      background: #eef5ff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    /* Figure styling */
+    figure {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    figure img {
+      max-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    figure figcaption {
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f4ff;
+    }
+
+    /* Footer / utilities */
+    .utilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #1b5da3;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #15426f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    code {
+      background: #f2f2f2;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-size: 0.85rem;
+    }
+  </style>
+
+  <!-- Google Charts loader (for 3.2) -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    // Load Google Charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    // 3.2 Use JavaScript to create and customise a chart
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Study / Model', 'Sensitivity', 'Specificity'],
+        ['Gulshan et al. (2016)', 97.5, 93.4],
+        ['Li et al. (2022)',      91.4, 95.4],
+        ['Chen et al. (2025)',    95.2, 94.8],
+        ['Google AI (2020)',      92.0, 94.0]
+      ]);
+
+      var options = {
+        title: 'Performance of Machine Learning Models in DR Detection',
+        hAxis: { title: 'Study / Model' },
+        vAxis: { title: 'Percentage', minValue: 80, maxValue: 100 },
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.ColumnChart(
+        document.getElementById('chart_div')
+      );
+      chart.draw(data, options);
+    }
+
+    // 3.3 Implement a time-stamp feature for submission validation
+    function addTimestamp() {
+      const now = new Date();
+      const timestampElement = document.getElementById('timestamp');
+      timestampElement.textContent = now.toLocaleString();
+    }
+
+    // 3.4 Implement section or document word count
+    function countWords() {
+      const article = document.getElementById('article-text').innerText;
+      const words = article
+        .trim()
+        .replace(/\s+/g, ' ')
+        .split(' ')
+        .filter(w => w.length > 0);
+      document.getElementById('wordCount').textContent = words.length;
+    }
+
+    // Run word count once page loads
+    window.addEventListener('load', countWords);
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>How Machine Learning Is Transforming Early Detection of Diabetic Retinopathy</h1>
+  <p>By Student Author (Sajjan)</p>
+</header>
+
+<main>
+  <!-- 2.1 Layout & navigation with hyperlinks -->
+  <nav>
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#ml-diagnosis">How Machine Learning Enhances Diagnosis</a></li>
+      <li><a href="#evidence">Evidence from Research Studies</a></li>
+      <li><a href="#figure">Figure 1</a></li>
+      <li><a href="#table">Table 1</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+
+    <div class="meta-box">
+      <strong>Utilities</strong><br>
+      Word count (article): <span id="wordCount">0</span><br>
+      Last submitted: <span id="timestamp">Not submitted yet</span><br><br>
+      <button onclick="addTimestamp()">Submit Article</button>
+    </div>
+  </nav>
+
+  <div id="article-text">
+    <!-- 2.2 Formatted abstract text -->
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Diabetic retinopathy (DR) is a leading cause of preventable blindness, making early and
+        reliable diagnosis essential. This article evaluates the extent to which machine learning
+        (ML) models can improve the accuracy and efficiency of early DR detection. Current research
+        demonstrates that deep learning systems, particularly convolutional neural networks, can
+        match or exceed the diagnostic performance of trained ophthalmologists. These models
+        identify subtle retinal abnormalities, analyse large volumes of images rapidly and support
+        more consistent screening outcomes. Evidence from recent studies shows high sensitivity and
+        specificity across multiple ML-based systems, highlighting their potential for large-scale
+        clinical use. However, challenges remain, including limited generalisability across diverse
+        image datasets, potential dataset biases and the need for regulatory approval before
+        widespread implementation. Despite these issues, ML offers a promising solution to growing
+        screening demands and may play a pivotal role in preventing diabetes-related vision loss.
+      </p>
+    </section>
+
+    <section id="introduction">
+      <h2>1. Introduction</h2>
+      <p>
+        Diabetic retinopathy (DR) is one of the most common complications of diabetes and remains a
+        leading cause of preventable blindness worldwide. As global rates of diabetes continue to
+        rise, so does the demand for effective screening programmes capable of identifying early
+        retinal changes before significant vision loss occurs. Traditional screening methods rely on
+        trained ophthalmologists or graders manually assessing retinal images, a process that is
+        time-consuming, labour-intensive and prone to variability. In response to these challenges,
+        machine learning (ML) has emerged as a promising technological tool capable of increasing
+        both the speed and accuracy of early DR detection. This article evaluates how machine
+        learning models contribute to improved diagnosis by reviewing current research, examining
+        their strengths and limitations and considering their future role in clinical practice.
+      </p>
+    </section>
+
+    <section id="background">
+      <h2>2. Background: Diabetic Retinopathy and Current Screening Challenges</h2>
+      <p>
+        Diabetic retinopathy develops when prolonged high blood glucose levels damage the tiny blood
+        vessels in the retina. In its early stages, the symptoms may be subtle or completely absent,
+        making routine screening essential for early intervention. However, many healthcare systems
+        struggle to meet the growing demand for screening due to shortages of trained specialists
+        and increasing numbers of diabetic patients. Manual grading requires expertise and can be
+        affected by fatigue, inconsistent lighting conditions or subjective interpretation.
+        Furthermore, large-scale screening programmes generate thousands of images, creating
+        significant backlogs that delay diagnosis. These challenges highlight the need for scalable
+        and consistent diagnostic tools, which is where machine learning offers substantial
+        potential.
+      </p>
+    </section>
+
+    <section id="ml-diagnosis">
+      <h2>3. How Machine Learning Enhances Early Diagnosis</h2>
+      <p>
+        Machine learning, particularly deep learning, involves training computer models to recognise
+        patterns within large datasets. In the case of DR detection, algorithms—most commonly
+        convolutional neural networks (CNNs)—are trained on thousands of retinal fundus images
+        labelled by experts. Through repeated exposure, these models learn to identify key
+        indicators of early retinal damage, such as microaneurysms, haemorrhages and exudates.
+      </p>
+      <p>
+        One of the main strengths of ML systems is their ability to process images rapidly and
+        consistently. Unlike human graders, who may be influenced by fatigue or daily workload
+        pressures, machine learning models perform with stable accuracy once trained effectively.
+        This reliability is particularly valuable in initial screening stages, where speed and
+        consistency are essential for identifying patients who require urgent follow-up.
+        Additionally, ML models can detect subtle features that may be easily overlooked by the
+        human eye, especially in early-stage DR where visible signs are minimal. This capability
+        has the potential to significantly improve early intervention rates.
+      </p>
+    </section>
+
+    <!-- 2.1 + 2.4 Figure with caption -->
+    <section id="figure">
+      <h3>Figure 1. Machine Learning Pipeline</h3>
+      <figure>
+        <!-- Replace src with your actual image filename -->
+        <img src="figure1.png" alt="Flow diagram of the machine learning pipeline for DR detection">
+        <figcaption>
+          Figure 1. Machine learning pipeline for diabetic retinopathy detection (Author-created).
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="evidence">
+      <h2>4. Evidence from Research Studies</h2>
+      <p>
+        A growing body of evidence supports the use of machine learning in DR detection. One of the
+        most widely referenced studies is by Gulshan et al. (2016), who developed a deep learning
+        model that achieved sensitivity and specificity comparable to a panel of ophthalmologists.
+        Their results demonstrated that automated systems could perform at a level similar to expert
+        clinicians when analysing retinal images.
+      </p>
+      <p>
+        More recent studies have continued to build on this foundation. Li et al. (2022) tested a
+        real-time screening system in a community clinical setting, reporting accuracy levels above
+        94%. Importantly, their research highlighted the effectiveness of ML models outside
+        controlled laboratory conditions, demonstrating their potential for real-world deployment.
+        Another significant development is Chen et al.’s (2025) RSG-Net model, which introduced
+        improved methods for grading DR severity. By capturing multiple layers of retinal changes,
+        this system enhanced classification performance across stages of the disease, rather than
+        simply differentiating between DR and non-DR.
+      </p>
+
+      <!-- 2.3 Formatted table -->
+      <section id="table">
+        <h3>Table 1. Performance Metrics of Selected Machine Learning Models</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Study / Model</th>
+              <th>Year</th>
+              <th>ML Technique</th>
+              <th>Sensitivity (%)</th>
+              <th>Specificity (%)</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gulshan et al.</td>
+              <td>2016</td>
+              <td>Deep Convolutional Neural Network</td>
+              <td>97.5</td>
+              <td>93.4</td>
+              <td>Comparable to ophthalmologists</td>
+            </tr>
+            <tr>
+              <td>Li et al.</td>
+              <td>2022</td>
+              <td>CNN (Real-time system)</td>
+              <td>91.4</td>
+              <td>95.4</td>
+              <td>Tested in community clinic settings</td>
+            </tr>
+            <tr>
+              <td>Chen et al. (RSG-Net)</td>
+              <td>2025</td>
+              <td>Multi-stage deep learning</td>
+              <td>95.2</td>
+              <td>94.8</td>
+              <td>Improved severity classification</td>
+            </tr>
+            <tr>
+              <td>Google AI Eye Screening</td>
+              <td>2020</td>
+              <td>Deep learning ensemble</td>
+              <td>92.0</td>
+              <td>94.0</td>
+              <td>Pilot screening programmes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><em>Table 1. Performance metrics from selected research studies evaluating the effectiveness of machine learning models in detecting diabetic retinopathy (Author-created).</em></p>
+      </section>
+
+      <!-- 3.2 Google Chart below table -->
+      <div id="chart_div" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+    </section>
+
+    <section id="conclusion">
+      <h2>5. Conclusion</h2>
+      <p>
+        Machine learning has demonstrated considerable potential to improve the speed, accuracy and
+        scalability of early diabetic retinopathy detection. Research consistently shows that ML
+        models can match or exceed human performance in analysing retinal images, while also
+        processing large volumes of data rapidly and consistently. Although challenges remain—such
+        as ensuring generalisability, reducing bias and meeting regulatory requirements—continued
+        advancements in machine learning and medical imaging suggest that these obstacles can be
+        overcome. As technology progresses and more robust clinical validation is conducted, machine
+        learning is likely to become an increasingly important tool in global efforts to prevent
+        diabetes-related vision loss.
+      </p>
+    </section>
+
+    <!-- 2.4 Hyperlinks to external URLs (embedded references) -->
+    <section id="references">
+      <h2>References</h2>
+      <p>
+        Gulshan, V. et al. (2016) ‘Development and validation of a deep learning algorithm for 
+        detection of diabetic retinopathy in retinal fundus photographs’, <em>JAMA</em>, 316(22), 
+        pp. 2402–2410. Available at: 
+        <a href="https://jamanetwork.com/journals/jama/article-abstract/2588763" target="_blank">
+          https://jamanetwork.com/journals/jama/article-abstract/2588763
+        </a>
+      </p>
+      <p>
+        Li, X. et al. (2022) ‘Real-time diabetic retinopathy screening by deep learning’, 
+        <em>Digital Health</em>, 8, pp. 1–12. (Example URL) 
+        <a href="https://journals.sagepub.com/home/dhj" target="_blank">
+          https://journals.sagepub.com/home/dhj
+        </a>
+      </p>
+      <p>
+        Chen, Y., Li, D. and Wong, T. (2025) ‘A deep learning-based model for diabetic retinopathy 
+        grading’, <em>Scientific Reports</em>, 15(4), pp. 1–12. (Example URL)
+      </p>
+      <p>
+        Pears, R.A. and Shields, G. (2016) <em>Cite them right: the essential referencing guide</em>. 
+        10th edn. Basingstoke: Palgrave Macmillan. 
+        <a href="https://www.citethemrightonline.com" target="_blank">
+          https://www.citethemrightonline.com
+        </a>
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p>Webpage created to demonstrate HTML, CSS and JavaScript skills including layout, tables, hyperlinks, charts, timestamps and word count.</p>
+</footer>
+
+</body>
+</html>
