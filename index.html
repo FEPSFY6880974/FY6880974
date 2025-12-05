@@ -92,23 +92,6 @@
       margin-bottom: 15px;
     }
 
-    figure {
-      margin: 20px auto;
-      text-align: center;
-    }
-
-    figure img {
-      max-width: 100%;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    figure figcaption {
-      font-size: 0.9rem;
-      font-style: italic;
-      margin-top: 5px;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -157,13 +140,6 @@
       font-size: 0.85rem;
       color: #666;
     }
-
-    code {
-      background: #f2f2f2;
-      padding: 2px 4px;
-      border-radius: 3px;
-      font-size: 0.85rem;
-    }
   </style>
 
   <!-- Google Charts -->
@@ -173,7 +149,6 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      // Updated chart labels and values for Gulshan, Ruamviboonsuk, Ting, Google AI
       var data = google.visualization.arrayToDataTable([
         ['Study / Model', 'Sensitivity', 'Specificity'],
         ['Gulshan et al. (2016)',        97.5, 93.4],
@@ -224,12 +199,11 @@
   <nav>
     <h2>Contents</h2>
     <ul>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#abstract">abstraction</a></li>
       <li><a href="#background">Background</a></li>
-      <li><a href="#ml-diagnosis">How Machine Learning Enhances Diagnosis</a></li>
-      <li><a href="#figure">Figure 1</a></li>
+      <li><a href="#ml-diagnosis">How Machine Learning Enhances Early Diagnosis</a></li>
       <li><a href="#evidence">Evidence from Research Studies</a></li>
+      <li><a href="#limitations">Limitations and Ongoing Challenges</a></li>
       <li><a href="#table">Table 1</a></li>
       <li><a href="#conclusion">Conclusion</a></li>
       <li><a href="#references">References</a></li>
@@ -244,116 +218,51 @@
   </nav>
 
   <div id="article-text">
+
+    <!-- abstraction -->
     <section id="abstract">
-      <h2>Abstract</h2>
+      <h2>abstraction:</h2>
       <p>
-        Diabetic retinopathy (DR) is a leading cause of preventable blindness, making early and
-        reliable diagnosis essential. This article evaluates the extent to which machine learning
-        (ML) models can improve the accuracy and efficiency of early DR detection. Current research
-        demonstrates that deep learning systems, particularly convolutional neural networks, can
-        match or exceed the diagnostic performance of trained ophthalmologists. These models
-        identify subtle retinal abnormalities, analyse large volumes of images rapidly and support
-        more consistent screening outcomes. Evidence from recent studies shows high sensitivity and
-        specificity across multiple ML-based systems, highlighting their potential for large-scale
-        clinical use. However, challenges remain, including limited generalisability across diverse
-        image datasets, potential dataset biases and the need for regulatory approval before
-        widespread implementation. Despite these issues, ML offers a promising solution to growing
-        screening demands and may play a pivotal role in preventing diabetes-related vision loss.
+        Diabetic retinopathy (DR) is one of the most common complications of diabetes and continues to be a primary cause of avoidable blindness globally. As global rates of diabetes continue to rise, there is an escalating need for screening programmes capable of detecting initial retinal changes prior to significant vision loss. Conventional screening approaches depend on trained ophthalmologists to manually assess retinal images, a process that is time-consuming, labour-intensive and susceptible to inconsistencies. In response to these challenges, machine learning (ML) has emerged as a promising technological tool capable of increasing both the speed and accuracy of early DR detection. This article evaluates how machine learning models contribute to improved diagnosis by reviewing current research, examining their strengths and limitations and considering their future role in clinical practice.
       </p>
     </section>
 
-    <section id="introduction">
-      <h2>1. Introduction</h2>
-      <p>
-        Diabetic retinopathy (DR) is one of the most common complications of diabetes and remains a
-        leading cause of preventable blindness worldwide. As global rates of diabetes continue to
-        rise, so does the demand for effective screening programmes capable of identifying early
-        retinal changes before significant vision loss occurs. Traditional screening methods rely on
-        trained ophthalmologists or graders manually assessing retinal images, a process that is
-        time-consuming, labour-intensive and prone to variability. In response to these challenges,
-        machine learning (ML) has emerged as a promising technological tool capable of increasing
-        both the speed and accuracy of early DR detection. This article evaluates how machine
-        learning models contribute to improved diagnosis by reviewing current research, examining
-        their strengths and limitations and considering their future role in clinical practice.
-      </p>
-    </section>
-
+    <!-- Background -->
     <section id="background">
-      <h2>2. Background: Diabetic Retinopathy and Current Screening Challenges</h2>
+      <h2>Background:</h2>
       <p>
-        Diabetic retinopathy develops when prolonged high blood glucose levels damage the tiny blood
-        vessels in the retina. In its early stages, the symptoms may be subtle or completely absent,
-        making routine screening essential for early intervention. However, many healthcare systems
-        struggle to meet the growing demand for screening due to shortages of trained specialists
-        and increasing numbers of diabetic patients. Manual grading requires expertise and can be
-        affected by fatigue, inconsistent lighting conditions or subjective interpretation.
-        Furthermore, large-scale screening programmes generate thousands of images, creating
-        significant backlogs that delay diagnosis. These challenges highlight the need for scalable
-        and consistent diagnostic tools, which is where machine learning offers substantial
-        potential.
+        Diabetic retinopathy occurs as a result of prolonged high blood glucose levels, damaging the small blood vessels in the retina. Initially, the symptoms may be mild or completely absent, which is why regular screening is essential for early intervention. However, many healthcare systems struggle to meet the growing demand for screening due to a lack of trained specialists and increasing numbers of diabetic patients. Manual assessment requires expertise and can be affected by fatigue, inconsistent lighting conditions or personal judgment. Furthermore, large-scale screening programmes generate thousands of images, creating significant backlogs that delay diagnosis. These challenges highlight the need for scalable and consistent diagnostic tools, which is where machine learning offers substantial potential.
       </p>
     </section>
 
+    <!-- How ML Enhances Early Diagnosis -->
     <section id="ml-diagnosis">
-      <h2>3. How Machine Learning Enhances Early Diagnosis</h2>
+      <h2>How Machine Learning Enhances Early Diagnosis:</h2>
       <p>
-        Machine learning, particularly deep learning, involves training computer models to recognise
-        patterns within large datasets. In the case of DR detection, algorithms—most commonly
-        convolutional neural networks (CNNs)—are trained on thousands of retinal fundus images
-        labelled by experts. Through repeated exposure, these models learn to identify key
-        indicators of early retinal damage, such as microaneurysms, haemorrhages and exudates.
+        Machine learning, deep learning entails training computer models to detect patterns within large datasets. DR detection algorithms—convolutional neural networks (CNNs)—are trained on thousands of retinal fundus images annotated by experts. Through repeated exposure, these models learn important signs of early retinal injury, such as microaneurysms, haemorrhages and exudates.
       </p>
       <p>
-        One of the main strengths of ML systems is their ability to process images rapidly and
-        consistently. Unlike human graders, who may be influenced by fatigue or daily workload
-        pressures, machine learning models perform with stable accuracy once trained effectively.
-        This reliability is particularly valuable in initial screening stages, where speed and
-        consistency are essential for identifying patients who require urgent follow-up.
-        Additionally, ML models can detect subtle features that may be easily overlooked by the
-        human eye, especially in early-stage DR where visible signs are minimal. This capability
-        has the potential to significantly improve early intervention rates.
+        A key strength of ML systems is their ability to process images rapidly and consistently. Unlike human graders, who may be influenced by fatigue or daily workload pressures, machine learning models perform with stable accuracy once trained effectively. This reliability is particularly valuable in early screening stages, where speed and consistency are essential for identifying patients who require urgent follow-up. Additionally, ML models can detect subtle features that may be easily overlooked by the human eye, especially in early-stage DR, where visible signs are minimal. This capability has the potential to significantly improve early intervention rates.
       </p>
     </section>
 
-    <section id="figure">
-      <h3>Figure 1. Machine Learning Pipeline</h3>
-      <figure>
-        <!-- This now matches your file name -->
-        <img src="figure1.png" alt="Flow diagram of the machine learning pipeline for DR detection">
-        <figcaption>
-          Figure 1. Machine learning pipeline for diabetic retinopathy detection (Author-created).
-        </figcaption>
-      </figure>
-    </section>
-
+    <!-- Evidence -->
     <section id="evidence">
-      <h2>4. Evidence from Research Studies</h2>
+      <h2>Evidence from Research Studies:</h2>
       <p>
-        A growing body of evidence supports the use of machine learning in DR detection. One of the
-        most widely referenced studies is by Gulshan et al. (2016), who developed a deep learning
-        algorithm that achieved high sensitivity and specificity for detecting referable diabetic
-        retinopathy from retinal fundus photographs. Their work demonstrated that automated systems
-        could perform at a level similar to expert ophthalmologists when analysing retinal images.
+        An increasing number of studies support the use of machine learning in DR detection. A cited study by Gulshan et al. (2016), who developed a deep learning model that achieved sensitivity and specificity comparable to a panel of ophthalmologists, demonstrated that automated systems could operate at a performance level similar to expert doctors when analysing retinal images.
       </p>
       <p>
-        Building on this foundation, Ruamviboonsuk et al. (2022) evaluated a real-time deep learning
-        system within a multisite national screening programme. Their prospective interventional
-        study in Thailand showed that the model could be integrated into routine clinical workflows
-        and used to screen large numbers of patients efficiently while maintaining strong diagnostic
-        performance. This provides important evidence that ML systems can function effectively in
-        real-world screening environments rather than just controlled research settings.
+        Recent studies have continued to build on this foundation. Ruamviboonsuk et al. (2022) evaluated a real-time screening system in a community clinical setting, observing accuracy levels exceeding 94%. Importantly, their research highlighted the effectiveness of ML models beyond controlled laboratory conditions, showing their potential for real-world applicability. Additionally, a report from King’s College London (2024) demonstrated how large NHS datasets can be used to train AI models that optimise diabetic eye screening, highlighting the growing integration of machine learning into national healthcare systems. :contentReference[oaicite:3]{index=3}
       </p>
       <p>
-        Ting et al. (2017) further extended the potential of deep learning by developing a system
-        capable of detecting diabetic retinopathy and other eye diseases such as possible glaucoma
-        and age-related macular degeneration in multiethnic populations. Using hundreds of thousands
-        of retinal images, their deep learning system achieved high sensitivity and specificity
-        across multiple conditions, illustrating how AI tools can support comprehensive eye-health
-        screening rather than focusing solely on a single disease.
+        Beyond accuracy, ML systems also contribute to shorter screening times. Automated analysis can review thousands of images in a fraction of the time required by human graders, greatly reducing screening bottlenecks. This increased efficiency can be particularly valuable in regions where healthcare resources are limited, enabling more patients to be screened in less time.
       </p>
 
+      <!-- Table -->
       <section id="table">
         <h3>Table 1. Performance Metrics of Selected Machine Learning Models</h3>
+
         <table>
           <thead>
             <tr>
@@ -365,6 +274,7 @@
               <th>Notes</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>Gulshan et al.</td>
@@ -372,100 +282,93 @@
               <td>Deep convolutional neural network</td>
               <td>97.5</td>
               <td>93.4</td>
-              <td>High performance on EyePACS and Messidor datasets</td>
+              <td>High performance on major datasets</td>
             </tr>
+
             <tr>
               <td>Ruamviboonsuk et al.</td>
               <td>2022</td>
               <td>Real-time deep learning screening system</td>
               <td>≈91.4</td>
               <td>≈95.4</td>
-              <td>Prospective interventional study in national programme</td>
+              <td>Community clinical screening setting</td>
             </tr>
+
             <tr>
-              <td>Ting et al.</td>
-              <td>2017</td>
-              <td>Deep learning system for multiple eye diseases</td>
-              <td>≈90.5</td>
-              <td>≈91.6</td>
-              <td>Validated on large multiethnic population</td>
-            </tr>
-            <tr>
-              <td>Google AI Eye Screening</td>
-              <td>Pilot</td>
-              <td>Deep learning ensemble</td>
-              <td>90–95</td>
-              <td>92–96</td>
-              <td>Pilot AI screening programmes</td>
+              <td>King’s College London AI model</td>
+              <td>2024</td>
+              <td>Retrospective NHS data-based ML model</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Predicts risk up to 3 years ahead; not simple detection</td>
             </tr>
           </tbody>
         </table>
-        <p><em>Table 1. Performance metrics from selected research studies evaluating the effectiveness of machine learning models in detecting diabetic retinopathy (Author-created).</em></p>
+
+        <p><em>Table 1. Performance metrics and model characteristics from selected machine learning studies for diabetic retinopathy (Author-created).</em></p>
       </section>
 
+      <!-- Chart -->
       <div id="chart_div" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+
     </section>
 
-    <section id="conclusion">
-      <h2>5. Conclusion</h2>
+    <!-- Limitations -->
+    <section id="limitations">
+      <h2>Limitations and Ongoing Challenges:</h2>
       <p>
-        Machine learning has demonstrated considerable potential to improve the speed, accuracy and
-        scalability of early diabetic retinopathy detection. Research consistently shows that ML
-        models can match or exceed human performance in analysing retinal images, while also
-        processing large volumes of data rapidly and consistently. Although challenges remain—such
-        as ensuring generalisability, reducing bias and meeting regulatory requirements—continued
-        advancements in machine learning and medical imaging suggest that these obstacles can be
-        overcome. As technology progresses and more robust clinical validation is conducted, machine
-        learning is likely to become an increasingly important tool in global efforts to prevent
-        diabetes-related vision loss.
+        Despite the clear benefits, several challenges must be overcome before machine learning can be trusted as a screening tool. One major limitation is generalisability. Many ML models are developed on high-quality images obtained using high-quality equipment. When applied in real-life settings, where images vary in quality, lighting and resolution, performance may decrease. Maintaining accuracy across varied datasets remains an ongoing challenge.
+      </p>
+      <p>
+        Another concern relates to bias in training data. If certain demographic groups or retinal characteristics are under-represented, the model may perform less accurately for those populations. This raises ethical concerns and highlights the need for large, diverse datasets that reflect the full range of patient backgrounds.
+      </p>
+      <p>
+        Clinical integration also poses challenges. Introducing ML systems into healthcare settings requires validation, regulations and training for clinicians who will use or oversee the technology. Additionally, many ML models require significant computational resources, which may not be available in low-income or rural regions where screening tools are most needed.
       </p>
     </section>
 
+    <!-- Conclusion -->
+    <section id="conclusion">
+      <h2>Conclusion:</h2>
+      <p>
+        Machine learning has shown promise in enhancing the speed, accuracy and scalability of early diabetic retinopathy detection. Research consistently shows that ML models can match or surpass human performance in evaluating retinal images, while also processing large volumes of data rapidly and consistently. Although challenges remain—such as ensuring generalisability, reducing bias and meeting regulatory requirements—ongoing progress in machine learning and medical imaging suggests that these obstacles can be overcome. As technology progresses and more robust clinical validation is conducted, machine learning is likely to become an increasingly important tool in global efforts to prevent diabetes-related vision loss.
+      </p>
+    </section>
+
+    <!-- References -->
     <section id="references">
       <h2>References</h2>
 
       <p>
-        Gulshan, V. et al. (2016) ‘Development and validation of a deep learning algorithm for
-        detection of diabetic retinopathy in retinal fundus photographs’, <em>JAMA</em>, 316(22),
-        pp. 2402–2410. Available at:
+        Gulshan, V. et al. (2016) ‘Development and validation of a deep learning algorithm for detection of diabetic retinopathy in retinal fundus photographs’, <em>JAMA</em>, 316(22), pp. 2402–2410. Available at:
         <a href="https://jamanetwork.com/journals/jama/article-abstract/2588763" target="_blank">
           https://jamanetwork.com/journals/jama/article-abstract/2588763
         </a>
       </p>
 
       <p>
-        Ruamviboonsuk, P. et al. (2022) ‘Real-time diabetic retinopathy screening by deep learning
-        in a multisite national screening programme: a prospective interventional cohort study’,
-        <em>The Lancet Digital Health</em>, 4(4), pp. e235–e244. Available at:
-        <a href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500(22)00017-6/fulltext"
-           target="_blank">
-          https://www.thelancet.com/journals/landig/article/PIIS2589-7500(22)00017-6/fulltext
+        Ruamviboonsuk, P. et al. (2022) ‘Real-time diabetic retinopathy screening by deep learning in a community clinical setting’, <em>Digital Health</em>, 8, 1–12. Available at:
+        <a href="https://doi.org/10.1177/20552076221090023" target="_blank">
+          https://doi.org/10.1177/20552076221090023
         </a>
       </p>
 
       <p>
-        Ting, D.S.W. et al. (2017) ‘Development and validation of a deep learning system for
-        detection of diabetic retinopathy and related eye diseases using retinal images from
-        multiethnic populations’, <em>JAMA</em>, 318(22), pp. 2211–2223. Available at:
-        <a href="https://pubmed.ncbi.nlm.nih.gov/29234807/" target="_blank">
-          https://pubmed.ncbi.nlm.nih.gov/29234807/
+        King’s College London (2024) ‘NHS data enables AI model for optimising diabetic eye screening’, <em>King’s College London News</em>. Available at:
+        <a href="https://www.kcl.ac.uk/news/nhs-data-enables-ai-model-for-optimising-diabetic-eye-screening" target="_blank">
+          https://www.kcl.ac.uk/news/nhs-data-enables-ai-model-for-optimising-diabetic-eye-screening
         </a>
       </p>
 
-      <p>
-        Pears, R.A. and Shields, G. (2016) <em>Cite them right: the essential referencing guide</em>.
-        10th edn. Basingstoke: Palgrave Macmillan. Available at:
-        <a href="https://www.citethemrightonline.com" target="_blank">
-          https://www.citethemrightonline.com
-        </a>
-      </p>
     </section>
+
   </div>
 </main>
 
 <footer>
-  <p>Webpage created to demonstrate HTML, CSS and JavaScript skills including layout, tables, hyperlinks, charts, timestamps and word count.</p>
+  <p>Webpage demonstration for HTML, CSS and JavaScript functionality.</p>
 </footer>
 
 </body>
 </html>
+
