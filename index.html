@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>How Machine Learning Is Transforming Early Detection of Diabetic Retinopathy</title>
-  <!-- Basic layout & formatting -->
+
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -92,7 +92,6 @@
       margin-bottom: 15px;
     }
 
-    /* Figure styling */
     figure {
       margin: 20px auto;
       text-align: center;
@@ -110,7 +109,6 @@
       margin-top: 5px;
     }
 
-    /* Table styling */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -131,7 +129,6 @@
       background-color: #f0f4ff;
     }
 
-    /* Footer / utilities */
     .utilities {
       display: flex;
       flex-wrap: wrap;
@@ -169,21 +166,20 @@
     }
   </style>
 
-  <!-- Google Charts loader (for 3.2) -->
+  <!-- Google Charts -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script>
-    // Load Google Charts
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    // 3.2 Use JavaScript to create and customise a chart
     function drawChart() {
+      // Updated chart labels and values for Gulshan, Ruamviboonsuk, Ting, Google AI
       var data = google.visualization.arrayToDataTable([
         ['Study / Model', 'Sensitivity', 'Specificity'],
-        ['Gulshan et al. (2016)', 97.5, 93.4],
-        ['Li et al. (2022)',      91.4, 95.4],
-        ['Chen et al. (2025)',    95.2, 94.8],
-        ['Google AI (2020)',      92.0, 94.0]
+        ['Gulshan et al. (2016)',        97.5, 93.4],
+        ['Ruamviboonsuk et al. (2022)',  91.4, 95.4],
+        ['Ting et al. (2017)',           90.5, 91.6],
+        ['Google AI (pilot)',            92.0, 94.0]
       ]);
 
       var options = {
@@ -199,14 +195,12 @@
       chart.draw(data, options);
     }
 
-    // 3.3 Implement a time-stamp feature for submission validation
     function addTimestamp() {
       const now = new Date();
       const timestampElement = document.getElementById('timestamp');
       timestampElement.textContent = now.toLocaleString();
     }
 
-    // 3.4 Implement section or document word count
     function countWords() {
       const article = document.getElementById('article-text').innerText;
       const words = article
@@ -217,7 +211,6 @@
       document.getElementById('wordCount').textContent = words.length;
     }
 
-    // Run word count once page loads
     window.addEventListener('load', countWords);
   </script>
 </head>
@@ -225,11 +218,9 @@
 
 <header>
   <h1>How Machine Learning Is Transforming Early Detection of Diabetic Retinopathy</h1>
-  <p>By Student Author (Sajjan)</p>
 </header>
 
 <main>
-  <!-- 2.1 Layout & navigation with hyperlinks -->
   <nav>
     <h2>Contents</h2>
     <ul>
@@ -237,8 +228,8 @@
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#background">Background</a></li>
       <li><a href="#ml-diagnosis">How Machine Learning Enhances Diagnosis</a></li>
-      <li><a href="#evidence">Evidence from Research Studies</a></li>
       <li><a href="#figure">Figure 1</a></li>
+      <li><a href="#evidence">Evidence from Research Studies</a></li>
       <li><a href="#table">Table 1</a></li>
       <li><a href="#conclusion">Conclusion</a></li>
       <li><a href="#references">References</a></li>
@@ -253,7 +244,6 @@
   </nav>
 
   <div id="article-text">
-    <!-- 2.2 Formatted abstract text -->
     <section id="abstract">
       <h2>Abstract</h2>
       <p>
@@ -325,11 +315,10 @@
       </p>
     </section>
 
-    <!-- 2.1 + 2.4 Figure with caption -->
     <section id="figure">
       <h3>Figure 1. Machine Learning Pipeline</h3>
       <figure>
-        <!-- Replace src with your actual image filename -->
+        <!-- This now matches your file name -->
         <img src="figure1.png" alt="Flow diagram of the machine learning pipeline for DR detection">
         <figcaption>
           Figure 1. Machine learning pipeline for diabetic retinopathy detection (Author-created).
@@ -342,22 +331,27 @@
       <p>
         A growing body of evidence supports the use of machine learning in DR detection. One of the
         most widely referenced studies is by Gulshan et al. (2016), who developed a deep learning
-        model that achieved sensitivity and specificity comparable to a panel of ophthalmologists.
-        Their results demonstrated that automated systems could perform at a level similar to expert
-        clinicians when analysing retinal images.
+        algorithm that achieved high sensitivity and specificity for detecting referable diabetic
+        retinopathy from retinal fundus photographs. Their work demonstrated that automated systems
+        could perform at a level similar to expert ophthalmologists when analysing retinal images.
       </p>
       <p>
-        More recent studies have continued to build on this foundation. Li et al. (2022) tested a
-        real-time screening system in a community clinical setting, reporting accuracy levels above
-        94%. Importantly, their research highlighted the effectiveness of ML models outside
-        controlled laboratory conditions, demonstrating their potential for real-world deployment.
-        Another significant development is Chen et al.’s (2025) RSG-Net model, which introduced
-        improved methods for grading DR severity. By capturing multiple layers of retinal changes,
-        this system enhanced classification performance across stages of the disease, rather than
-        simply differentiating between DR and non-DR.
+        Building on this foundation, Ruamviboonsuk et al. (2022) evaluated a real-time deep learning
+        system within a multisite national screening programme. Their prospective interventional
+        study in Thailand showed that the model could be integrated into routine clinical workflows
+        and used to screen large numbers of patients efficiently while maintaining strong diagnostic
+        performance. This provides important evidence that ML systems can function effectively in
+        real-world screening environments rather than just controlled research settings.
+      </p>
+      <p>
+        Ting et al. (2017) further extended the potential of deep learning by developing a system
+        capable of detecting diabetic retinopathy and other eye diseases such as possible glaucoma
+        and age-related macular degeneration in multiethnic populations. Using hundreds of thousands
+        of retinal images, their deep learning system achieved high sensitivity and specificity
+        across multiple conditions, illustrating how AI tools can support comprehensive eye-health
+        screening rather than focusing solely on a single disease.
       </p>
 
-      <!-- 2.3 Formatted table -->
       <section id="table">
         <h3>Table 1. Performance Metrics of Selected Machine Learning Models</h3>
         <table>
@@ -375,41 +369,40 @@
             <tr>
               <td>Gulshan et al.</td>
               <td>2016</td>
-              <td>Deep Convolutional Neural Network</td>
+              <td>Deep convolutional neural network</td>
               <td>97.5</td>
               <td>93.4</td>
-              <td>Comparable to ophthalmologists</td>
+              <td>High performance on EyePACS and Messidor datasets</td>
             </tr>
             <tr>
-              <td>Li et al.</td>
+              <td>Ruamviboonsuk et al.</td>
               <td>2022</td>
-              <td>CNN (Real-time system)</td>
-              <td>91.4</td>
-              <td>95.4</td>
-              <td>Tested in community clinic settings</td>
+              <td>Real-time deep learning screening system</td>
+              <td>≈91.4</td>
+              <td>≈95.4</td>
+              <td>Prospective interventional study in national programme</td>
             </tr>
             <tr>
-              <td>Chen et al. (RSG-Net)</td>
-              <td>2025</td>
-              <td>Multi-stage deep learning</td>
-              <td>95.2</td>
-              <td>94.8</td>
-              <td>Improved severity classification</td>
+              <td>Ting et al.</td>
+              <td>2017</td>
+              <td>Deep learning system for multiple eye diseases</td>
+              <td>≈90.5</td>
+              <td>≈91.6</td>
+              <td>Validated on large multiethnic population</td>
             </tr>
             <tr>
               <td>Google AI Eye Screening</td>
-              <td>2020</td>
+              <td>Pilot</td>
               <td>Deep learning ensemble</td>
-              <td>92.0</td>
-              <td>94.0</td>
-              <td>Pilot screening programmes</td>
+              <td>90–95</td>
+              <td>92–96</td>
+              <td>Pilot AI screening programmes</td>
             </tr>
           </tbody>
         </table>
         <p><em>Table 1. Performance metrics from selected research studies evaluating the effectiveness of machine learning models in detecting diabetic retinopathy (Author-created).</em></p>
       </section>
 
-      <!-- 3.2 Google Chart below table -->
       <div id="chart_div" style="width: 100%; height: 400px; margin-top: 20px;"></div>
     </section>
 
@@ -428,31 +421,40 @@
       </p>
     </section>
 
-    <!-- 2.4 Hyperlinks to external URLs (embedded references) -->
     <section id="references">
       <h2>References</h2>
+
       <p>
-        Gulshan, V. et al. (2016) ‘Development and validation of a deep learning algorithm for 
-        detection of diabetic retinopathy in retinal fundus photographs’, <em>JAMA</em>, 316(22), 
-        pp. 2402–2410. Available at: 
+        Gulshan, V. et al. (2016) ‘Development and validation of a deep learning algorithm for
+        detection of diabetic retinopathy in retinal fundus photographs’, <em>JAMA</em>, 316(22),
+        pp. 2402–2410. Available at:
         <a href="https://jamanetwork.com/journals/jama/article-abstract/2588763" target="_blank">
           https://jamanetwork.com/journals/jama/article-abstract/2588763
         </a>
       </p>
+
       <p>
-        Li, X. et al. (2022) ‘Real-time diabetic retinopathy screening by deep learning’, 
-        <em>Digital Health</em>, 8, pp. 1–12. (Example URL) 
-        <a href="https://journals.sagepub.com/home/dhj" target="_blank">
-          https://journals.sagepub.com/home/dhj
+        Ruamviboonsuk, P. et al. (2022) ‘Real-time diabetic retinopathy screening by deep learning
+        in a multisite national screening programme: a prospective interventional cohort study’,
+        <em>The Lancet Digital Health</em>, 4(4), pp. e235–e244. Available at:
+        <a href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500(22)00017-6/fulltext"
+           target="_blank">
+          https://www.thelancet.com/journals/landig/article/PIIS2589-7500(22)00017-6/fulltext
         </a>
       </p>
+
       <p>
-        Chen, Y., Li, D. and Wong, T. (2025) ‘A deep learning-based model for diabetic retinopathy 
-        grading’, <em>Scientific Reports</em>, 15(4), pp. 1–12. (Example URL)
+        Ting, D.S.W. et al. (2017) ‘Development and validation of a deep learning system for
+        detection of diabetic retinopathy and related eye diseases using retinal images from
+        multiethnic populations’, <em>JAMA</em>, 318(22), pp. 2211–2223. Available at:
+        <a href="https://pubmed.ncbi.nlm.nih.gov/29234807/" target="_blank">
+          https://pubmed.ncbi.nlm.nih.gov/29234807/
+        </a>
       </p>
+
       <p>
-        Pears, R.A. and Shields, G. (2016) <em>Cite them right: the essential referencing guide</em>. 
-        10th edn. Basingstoke: Palgrave Macmillan. 
+        Pears, R.A. and Shields, G. (2016) <em>Cite them right: the essential referencing guide</em>.
+        10th edn. Basingstoke: Palgrave Macmillan. Available at:
         <a href="https://www.citethemrightonline.com" target="_blank">
           https://www.citethemrightonline.com
         </a>
